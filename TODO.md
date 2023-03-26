@@ -14,3 +14,7 @@ All the Todo's for the project
     - [ ] window before  
     - [ ] butInstall  
     - [ ] window after  
+
+- [ ] Configure workbox plugins in [wbpack.config.js](.\client\webpack.config.js)
+
+- [ ] Add CSS loaders and babel in [wbpack.config.js](.\client\webpack.config.js)
