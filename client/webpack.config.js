@@ -26,33 +26,29 @@ module.exports = () => {
         title: 'Text Editor',
         template: './index.html',
       }),
-      // new HtmlWebpackPlugin({
-      //   title: 'Install',
-      //   template: './src/install.html',
-      //   filename: 'install.html',
-      //   chunks: ['install'],
-      // }),
+      // Custom service worker
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
+      }),
       // Creates a manifest file for the PWA
       new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
         name: 'Text Editor!',
         short_name: 'JATE',
         description: 'A text editor PWA',
         background_color: '#01579b',
         theme_color: '#ffffff',
-        'theme-color': '#ffffff',
         start_url: '/',
         publicPath: '/',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
           },
         ],
-      }),
-      // Custom service worker
-      new InjectManifest({
-        swSrc: './src-sw.js',
-        swDest: 'src-sw.js',
       }),
     ],
 
@@ -63,7 +59,7 @@ module.exports = () => {
           use: ['style-loader', 'css-loader'],
         },
         {
-          test: /\.js$/,
+          test: /\.m?js$/,
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
