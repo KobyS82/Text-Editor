@@ -10,7 +10,6 @@
     "build": "cd client && npm run build",
     "install": "cd server && npm i && cd ../client && npm i",
     "client": "cd client && npm start",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress",
     "webdev": "webpack-dev-server"
   },
   "keywords": [],
@@ -24,6 +23,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "webpack-cli": "^5.0.1"
   }
 }
